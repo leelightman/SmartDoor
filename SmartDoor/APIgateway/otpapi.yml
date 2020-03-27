@@ -1,0 +1,82 @@
+swagger: '2.0'
+info:
+  title: OTP Validation API
+  description: 'Capture and validate the OTP, built during the Cloud Computing course at New York University.'
+  version: 1.0.0
+schemes:
+  - https
+  - http
+basePath: /v1
+produces:
+  - application/json
+paths:
+  /form:
+    post:
+      summary: The endpoint for the form
+      description: |
+        This API takes in OTP from the user and returns
+        one messages as a response.
+      tags:
+        - NLU
+      operationId: sendMessage
+      produces:
+        - application/json
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Request'
+      responses:
+        '200':
+          description: Response
+          schema:
+            $ref: '#/definitions/Response'
+        '403':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/Error'
+        '500':
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+definitions:
+  Request:
+    type: object
+    properties:
+      messages:
+        type: array
+        items:
+          $ref: '#/definitions/Message'
+  Response:
+    type: object
+    properties:
+      messages:
+        type: array
+        items:
+          $ref: '#/definitions/Message'
+  Message:
+    type: object
+    properties:
+      type:
+        type: string
+      unstructured:
+        $ref: '#/definitions/UnstructuredMessage'
+  UnstructuredMessage:
+    type: object
+    properties:
+      id:
+        type: string
+      text:
+        type: string
+      timestamp:
+        type: string
+        format: datetime
+  Error:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string

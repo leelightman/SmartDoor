@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="components/js/jquery-3.4.1.min.js"></script>
+
+    <!-- Bootstrap core CSS/JS -->
+    <link href="./components/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./components/css/custom.css" rel="stylesheet">
+    <script src="./components/js/bootstrap.min.js"></script>
+    <script src="./components/js/jquery-3.4.1.min.js"></script>
+    <!-- api gateway generated sdk -->
+    <script type="text/javascript" src="./components/js/apiGateway-js-sdk/lib/axios/dist/axios.standalone.js"></script>
+    <script type="text/javascript" src="./components/js/apiGateway-js-sdk/lib/CryptoJS/rollups/hmac-sha256.js"></script>
+    <script type="text/javascript" src="./components/js/apiGateway-js-sdk/lib/CryptoJS/rollups/sha256.js"></script>
+    <script type="text/javascript" src="./components/js/apiGateway-js-sdk/lib/CryptoJS/components/hmac.js"></script>
+    <script type="text/javascript" src="./components/js/apiGateway-js-sdk/lib/CryptoJS/components/enc-base64.js"></script>
+    <script type="text/javascript" src="./components/js/apiGateway-js-sdk/lib/url-template/url-template.js"></script>
+    <script type="text/javascript" src="./components/js/apiGateway-js-sdk/lib/apiGatewayCore/sigV4Client.js"></script>
+    <script type="text/javascript" src="./components/js/apiGateway-js-sdk/lib/apiGatewayCore/apiGatewayClient.js"></script>
+    <script type="text/javascript" src="./components/js/apiGateway-js-sdk/lib/apiGatewayCore/simpleHttpClient.js"></script>
+    <script type="text/javascript" src="./components/js/apiGateway-js-sdk/lib/apiGatewayCore/utils.js"></script>
+    <script type="text/javascript" src="./components/js/apiGateway-js-sdk/apigClient.js"></script>
+    <script type="text/javascript" src="./components/js/aws-sdk.min.js"></script>
+    <script type="text/javascript" src="./components/js/aws-sdk.js"></script>
+    <script src="components/js/smartdoor.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active h3" aria-current="page">Virtual Door</li>
+        </ol>
+        </nav>
+        <form class="container">
+            <div class="form-group">
+                <label for="name">Please input your One Time Passcode</label>
+                <input type="otp" class="form-control" id="otp-input" placeholder="Please enter your passcode">
+            </div>
+    
+            <button type="button" class="btn btn-primary otp-submit">Submit</button>
+        </form>
+        <div class="container">
+            <h2 class="success hide">Success</h2>
+            <h2 class="failure hide">Permission Denied</h2>
+            <h2 class="greeting"></h2>
+        </div>
+    </div>
+</body>
+
+</html>
